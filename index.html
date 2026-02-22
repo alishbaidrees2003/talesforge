@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>TaleForge AI Editor</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- SCREEN 1 – UPLOAD -->
+<div class="screen active" id="screen-upload">
+  <div class="logo-big">Tale<span>Forge</span></div>
+  <p class="subtitle">Turn raw clips into cinematic stories with AI</p>
+
+  <div class="upload-box" id="dropArea">
+    <p>Drag & Drop Video Here</p>
+    <p>or</p>
+    <label class="file-label">
+      Browse Files
+      <input type="file" id="videoInput" accept="video/*" hidden>
+    </label>
+  </div>
+
+  <button onclick="goToPrompt()">Start Creating</button>
+</div>
+
+<!-- SCREEN 2 – PROMPT -->
+<div class="screen" id="screen-prompt">
+  <h2>Create Your Story</h2>
+
+  <textarea id="promptInput" placeholder="Describe your video story..."></textarea>
+
+  <div class="genre-buttons">
+    <button onclick="selectGenre('adventure')">Adventure</button>
+    <button onclick="selectGenre('horror')">Horror</button>
+    <button onclick="selectGenre('documentary')">Documentary</button>
+    <button onclick="selectGenre('funny')">Funny</button>
+  </div>
+
+  <button onclick="startProcessing()">Generate with AI</button>
+</div>
+
+<!-- SCREEN 3 – LOADING -->
+<div class="screen loading-screen" id="screen-processing">
+
+  <!-- 🔥 AI CORE -->
+  <div class="ai-core">
+    <div class="core-ring"></div>
+    <div class="core-ring delay"></div>
+    <div class="core-center">TF</div>
+  </div>
+
+  <!-- existing floating dots (KEEPED BUT ENHANCED) -->
+  <div class="loading-animation">
+    <div class="shape s1"></div>
+    <div class="shape s2"></div>
+    <div class="shape s3"></div>
+    <div class="shape s4"></div>
+  </div>
+
+  <h2 id="loadingText" class="loading-text">
+    TaleForge Processing...
+  </h2>
+
+</div>
+
+
+<!-- SCREEN 4 – EDITOR -->
+<div class="screen" id="screen-editor">
+  <h2>Your AI Generated Story</h2>
+
+  <video id="videoPreview" controls></video>
+
+ <!-- 🎬 TALEFORGE PRO TIMELINE -->
+<div class="timeline-wrapper">
+
+  <div class="timeline-header">
+    <span class="tl-icon">🎬</span>
+    <span class="tl-title">TaleForge Editing Timeline</span>
+    <span class="tl-badge">AI</span>
+  </div>
+
+  <div class="timeline-track" id="timelineTrack">
+    <div class="timeline-progress" id="timelineProgress"></div>
+    <div class="playhead" id="playhead"></div>
+
+    <!-- fake clips -->
+    <div class="clip-block" style="left:0%; width:25%"></div>
+    <div class="clip-block" style="left:25%; width:35%"></div>
+    <div class="clip-block" style="left:60%; width:40%"></div>
+  </div>
+
+</div>
+
+
+<script src="app.js"></script>
+</body>
+</html>
