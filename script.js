@@ -17,8 +17,5 @@ generateBtn.addEventListener("click", () => {
     videoScreen.classList.add("active");
   }, 3000);
 
-  setTimeout(() => {
-    alert("Your AI-generated video is ready! (This is a placeholder)");
-  }, 5000);
 
 });
